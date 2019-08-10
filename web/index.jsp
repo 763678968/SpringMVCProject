@@ -11,7 +11,17 @@
     <title>$Title$</title>
   </head>
   <body>
+      <!-- 如果web.xml中的配置是
+          <servlet-mapping>
+              <servlet-name>springDispatcherServlet</servlet-name>
+              <url-pattern>/</url-pattern>
+          </servlet-mapping>
+
+          <a href="user/welcome.action">first springmvc - welcome</a> 交由springmvc处理，找@RequestMapping映射
+          <a href="user/welcome.action">first springmvc - welcome</a> 交由springmvc处理，找@RequestMapping映射
+          <a href="user/welcome">first springmvc - welcome</a>        交由servlet处理，找url-pattern / @WebServlet()
+      -->
+
       <a href="welcome">first springmvc - welcome</a>
-  $END$
   </body>
 </html>

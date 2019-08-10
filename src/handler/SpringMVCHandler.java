@@ -8,6 +8,6 @@ public class SpringMVCHandler {
 
     @RequestMapping("welcome")
     public String welcome() {
-        return "success";
+        return "success"; // views/success.jsp
     }
 }
