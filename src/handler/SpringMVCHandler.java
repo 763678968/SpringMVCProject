@@ -34,4 +34,32 @@ public class SpringMVCHandler {
         System.out.println(name);
         return "success"; // views/success.jsp，默认使用了请求转发的跳转方式
     }
+
+    @RequestMapping(value="testRest/{id}", method=RequestMethod.POST)
+    public String testPost(@PathVariable("id") Integer id) {
+        System.out.println("post:增" + id);
+        // Service层实现真正的增
+        return "success"; // views/success.jsp，默认使用了请求转发的跳转方式
+    }
+
+    @RequestMapping(value="testRest/{id}", method=RequestMethod.DELETE)
+    public String testDelete(@PathVariable("id") Integer id) {
+        System.out.println("delete:删" + id);
+        // Service层实现真正的增
+        return "success"; // views/success.jsp，默认使用了请求转发的跳转方式
+    }
+
+    @RequestMapping(value="testRest/{id}", method=RequestMethod.PUT)
+    public String testPut(@PathVariable("id") Integer id) {
+        System.out.println("put:改" + id);
+        // Service层实现真正的增
+        return "success"; // views/success.jsp，默认使用了请求转发的跳转方式
+    }
+
+    @RequestMapping(value="testRest/{id}", method=RequestMethod.GET)
+    public String testGet(@PathVariable("id") Integer id) {
+        System.out.println("get:查" + id);
+        // Service层实现真正的增
+        return "success"; // views/success.jsp，默认使用了请求转发的跳转方式
+    }
 }

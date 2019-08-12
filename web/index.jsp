@@ -32,5 +32,26 @@
           height:<input name="height"/><br>
           <input type="submit" value="post">
       </form>
+
+      <br/>=========<br/>
+
+      <form action="handler/testRest/1234" method="post">
+          <input type="submit" value="增">
+      </form>
+
+      <form action="handler/testRest/1234" method="post">
+          <input type="hidden" name="_method" value="DELETE"/>
+          <input type="submit" value="删">
+      </form>
+
+      <form action="handler/testRest/1234" method="post">
+          <input type="hidden" name="_method" value="PUT"/>
+          <input type="submit" value="改">
+      </form>
+
+      <form action="handler/testRest/1234" method="get">
+          <input type="submit" value="查"/>
+      </form>
+
   </body>
 </html>
