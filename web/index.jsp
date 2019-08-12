@@ -53,5 +53,13 @@
           <input type="submit" value="查"/>
       </form>
 
+      -----------------<br/>
+      <form action="handler/testParam" method="get">
+          name:<input name="uname" type="text"/>
+<%--          age:<input name="uage" type="text"/>--%>
+          <input type="submit" value="查"/>
+      </form>
+
+
   </body>
 </html>

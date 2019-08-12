@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("handler") // 映射
@@ -56,10 +57,11 @@ public class SpringMVCHandler {
         return "success"; // views/success.jsp，默认使用了请求转发的跳转方式
     }
 
-    @RequestMapping(value="testRest/{id}", method=RequestMethod.GET)
-    public String testGet(@PathVariable("id") Integer id) {
-        System.out.println("get:查" + id);
-        // Service层实现真正的增
+    @RequestMapping(value="testParam")
+    public String testParam(@RequestParam("uname") String name, @RequestParam(value="uage", required=false, defaultValue="23") Integer age) {
+//        String name = request.getParameter("uname");
+        System.out.println(name);
+        System.out.println(age);
         return "success"; // views/success.jsp，默认使用了请求转发的跳转方式
     }
 }
