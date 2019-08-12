@@ -17,4 +17,14 @@ public class SpringMVCHandler {
     public String welcome2() {
         return "success"; // views/success.jsp，默认使用了请求转发的跳转方式
     }
+
+    @RequestMapping(value="welcome3/**/test")
+    public String welcome3() {
+        return "success"; // views/success.jsp，默认使用了请求转发的跳转方式
+    }
+
+    @RequestMapping(value="welcome4/a?c/test")
+    public String welcome4() {
+        return "success"; // views/success.jsp，默认使用了请求转发的跳转方式
+    }
 }

@@ -22,7 +22,8 @@
           <a href="user/welcome">first springmvc - welcome</a>        交由servlet处理，找url-pattern / @WebServlet()
       -->
 
-      <a href="handler/welcome2">first springmvc - welcome</a><br>
+      <a href="handler/welcome3/xyz/abcz/asb/test">first springmvc - welcome</a><br>
+      <a href="handler/welcome4/abc/test">first springmvc - welcome</a><br>
 
       <form action="handler/welcome" method="post">
           name:<input name="name"/><br>
