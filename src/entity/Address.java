@@ -1,22 +1,22 @@
 package entity;
 
 public class Address {
-    private String homeAddresss;
-    private String SchoolAddress;
+    private String homeAddress;
+    private String schoolAddress;
 
-    public String getHomeAddresss() {
-        return homeAddresss;
+    public String getHomeAddress() {
+        return homeAddress;
     }
 
-    public void setHomeAddresss(String homeAddresss) {
-        this.homeAddresss = homeAddresss;
+    public void setHomeAddress(String homeAddress) {
+        this.homeAddress = homeAddress;
     }
 
     public String getSchoolAddress() {
-        return SchoolAddress;
+        return schoolAddress;
     }
 
     public void setSchoolAddress(String schoolAddress) {
-        SchoolAddress = schoolAddress;
+        this.schoolAddress = schoolAddress;
     }
 }

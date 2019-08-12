@@ -61,6 +61,16 @@
       </form>
 
       <a href="handler/testRequestHeader">testRequestHeader</a><br>
+      <a href="handler/testCookieValue">testCookieValue</a><br>
+
+      <form action="handler/testObjectProperties" method="post">
+          id:<input name="id" type="text"/>
+          name:<input name="name" type="text"/>
+          家庭地址:<input name="address.homeAddress" type="text"/>
+          学校地址:<input name="address.schoolAddress" type="text"/>
+          <input type="submit" value="查">
+
+      </form>
 
   </body>
 </html>

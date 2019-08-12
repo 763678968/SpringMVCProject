@@ -1,5 +1,6 @@
 package handler;
 
+import entity.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -58,5 +59,17 @@ public class SpringMVCHandler {
     public String testRequestHeader(@RequestHeader("Accept-Language") String al) {
         System.out.println(al);
         return "success"; // views/success.jsp，默认使用了请求转发的跳转方式
+    }
+
+    @RequestMapping(value="testCookieValue")
+    public String testCookieValue(@CookieValue("JSESSIONID") String jsessionId) {
+        System.out.println(jsessionId);
+        return "success"; // views/success.jsp，默认使用了请求转发的跳转方式
+    }
+
+    @RequestMapping(value="testObjectProperties")
+    public String testObjectProperties(Student student) { // student属性必须和form表单中的属性name值一致（支持级联属性）
+        System.out.println(student.getId() + "," + student.getName() + "," + student.getAddress().getHomeAddress() + "," + student.getAddress().getSchoolAddress());
+        return "success";
     }
 }
