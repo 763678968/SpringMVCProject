@@ -1,10 +1,7 @@
 package handler;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("handler") // 映射
@@ -57,11 +54,9 @@ public class SpringMVCHandler {
         return "success"; // views/success.jsp，默认使用了请求转发的跳转方式
     }
 
-    @RequestMapping(value="testParam")
-    public String testParam(@RequestParam("uname") String name, @RequestParam(value="uage", required=false, defaultValue="23") Integer age) {
-//        String name = request.getParameter("uname");
-        System.out.println(name);
-        System.out.println(age);
+    @RequestMapping(value="testRequestHeader")
+    public String testRequestHeader(@RequestHeader("Accept-Language") String al) {
+        System.out.println(al);
         return "success"; // views/success.jsp，默认使用了请求转发的跳转方式
     }
 }
