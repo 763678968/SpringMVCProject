@@ -1,6 +1,7 @@
 package handler;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -25,6 +26,12 @@ public class SpringMVCHandler {
 
     @RequestMapping(value="welcome4/a?c/test")
     public String welcome4() {
+        return "success"; // views/success.jsp，默认使用了请求转发的跳转方式
+    }
+
+    @RequestMapping(value="welcome5/{name}")
+    public String welcome5(@PathVariable("name") String name) {
+        System.out.println(name);
         return "success"; // views/success.jsp，默认使用了请求转发的跳转方式
     }
 }
