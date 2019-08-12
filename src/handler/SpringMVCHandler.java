@@ -4,6 +4,9 @@ import entity.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 @RequestMapping("handler") // 映射
 public class SpringMVCHandler {
@@ -70,6 +73,13 @@ public class SpringMVCHandler {
     @RequestMapping(value="testObjectProperties")
     public String testObjectProperties(Student student) { // student属性必须和form表单中的属性name值一致（支持级联属性）
         System.out.println(student.getId() + "," + student.getName() + "," + student.getAddress().getHomeAddress() + "," + student.getAddress().getSchoolAddress());
+        return "success";
+    }
+
+    @RequestMapping(value="testServletAPI")
+    public String testServletAPI(HttpServletRequest request, HttpServletResponse response) {
+        request.getParameter("uname");
+        System.out.println(request);
         return "success";
     }
 }
