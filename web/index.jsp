@@ -69,9 +69,12 @@
           家庭地址:<input name="address.homeAddress" type="text"/>
           学校地址:<input name="address.schoolAddress" type="text"/>
           <input type="submit" value="查">
-      </form>
+      </form><br>
 
-      <a href="handler/testServletAPI">testServletAPI</a><br>
+<%--      <a href="handler/testServletAPI">testServletAPI</a><br/>--%>
+
+      <a href="handler/testModelAndView">testModelAndView</a>
+
 
   </body>
 </html>

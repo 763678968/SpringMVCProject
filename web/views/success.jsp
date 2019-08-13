@@ -11,6 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-        welcome to springmvc
+        welcome to spring mvc success<br/>
+        ${requestScope.student.id} -${requestScope.student.name}
 </body>
 </html>

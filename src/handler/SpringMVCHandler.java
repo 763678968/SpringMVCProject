@@ -3,6 +3,7 @@ package handler;
 import entity.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -76,10 +77,24 @@ public class SpringMVCHandler {
         return "success";
     }
 
-    @RequestMapping(value="testServletAPI")
-    public String testServletAPI(HttpServletRequest request, HttpServletResponse response) {
-        request.getParameter("uname");
-        System.out.println(request);
-        return "success";
+    @RequestMapping(value="testModelAndView")
+    public ModelAndView testModelAndView() { // ModelAndView:既有数据，又有视图
+        // ModelAndView: Model -M   View -V
+        ModelAndView mv = new ModelAndView("success"); // view: views/success.jsp
+
+        Student student = new Student();
+        student.setId(2);
+        student.setName("zs");
+
+        mv.addObject("student", student); // 相当于request.setAttribute("student", student);
+        return mv;
     }
+
+//    @RequestMapping(value="testServletAPI")
+//    public String testServletAPI(HttpServletRequest request, HttpServletResponse response) {
+//        request.getParameter("uname");
+//        System.out.println(request);
+//        return "success";
+//    }
+
 }
