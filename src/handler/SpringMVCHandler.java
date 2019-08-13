@@ -2,11 +2,14 @@ package handler;
 
 import entity.Student;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 @Controller
 @RequestMapping("handler") // 映射
@@ -77,6 +80,13 @@ public class SpringMVCHandler {
         return "success";
     }
 
+//    @RequestMapping(value="testServletAPI")
+//    public String testServletAPI(HttpServletRequest request, HttpServletResponse response) {
+//        request.getParameter("uname");
+//        System.out.println(request);
+//        return "success";
+//    }
+
     @RequestMapping(value="testModelAndView")
     public ModelAndView testModelAndView() { // ModelAndView:既有数据，又有视图
         // ModelAndView: Model -M   View -V
@@ -90,11 +100,42 @@ public class SpringMVCHandler {
         return mv;
     }
 
-//    @RequestMapping(value="testServletAPI")
-//    public String testServletAPI(HttpServletRequest request, HttpServletResponse response) {
-//        request.getParameter("uname");
-//        System.out.println(request);
-//        return "success";
-//    }
+
+
+    @RequestMapping(value="testModelMap")
+    public String testModelMap(ModelMap mm) {
+
+        Student student = new Student();
+        student.setId(2);
+        student.setName("zs");
+
+        mm.put("student2", student); // request域
+
+        return "success";
+    }
+
+    @RequestMapping(value="testMap")
+    public String testMap(Map<String, Object> m) {
+
+        Student student = new Student();
+        student.setId(2);
+        student.setName("zs");
+
+        m.put("student3", student); // request域
+
+        return "success";
+    }
+
+    @RequestMapping(value="testModel")
+    public String testModel(Model model) { // success
+
+        Student student = new Student();
+        student.setId(2);
+        student.setName("zs");
+
+        model.addAttribute("student4", student); // request域
+
+        return "success";
+    }
 
 }

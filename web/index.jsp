@@ -73,7 +73,10 @@
 
 <%--      <a href="handler/testServletAPI">testServletAPI</a><br/>--%>
 
-      <a href="handler/testModelAndView">testModelAndView</a>
+      <a href="handler/testModelAndView">testModelAndView</a><br>
+      <a href="handler/testModelMap">testModelMap</a><br>
+      <a href="handler/testMap">testMap</a><br>
+      <a href="handler/testModel">testModel</a><br>
 
 
   </body>

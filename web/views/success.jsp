@@ -12,6 +12,9 @@
 </head>
 <body>
         welcome to spring mvc success<br/>
-        ${requestScope.student.id} -${requestScope.student.name}
+        ${requestScope.student.id} -${requestScope.student.name} <br>
+        ${requestScope.student2.id} -${requestScope.student2.name} <br>
+        ${requestScope.student3.id} -${requestScope.student3.name} <br>
+        ${requestScope.student4.id} -${requestScope.student4.name} <br>
 </body>
 </html>
