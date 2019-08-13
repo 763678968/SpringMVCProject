@@ -1,5 +1,6 @@
 package handler;
 
+import entity.Address;
 import entity.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
+// 接口/类 注解  配置
+//@SessionAttributes(value="student4") // 如果要在request中存放student4对象，则同时将该对象放入session域中
+//@SessionAttributes(types={Student.class, Address.class}) // 如果要在request中存放Student类型的对象，则同时将该类型的对象放入session域中
 @Controller
 @RequestMapping("handler") // 映射
 public class SpringMVCHandler {
@@ -100,8 +104,6 @@ public class SpringMVCHandler {
         return mv;
     }
 
-
-
     @RequestMapping(value="testModelMap")
     public String testModelMap(ModelMap mm) {
 
@@ -135,6 +137,29 @@ public class SpringMVCHandler {
 
         model.addAttribute("student4", student); // request域
 
+        return "success";
+    }
+
+
+    @ModelAttribute // 在任何一次请求前，都会先执行@ModelAttribute修饰的方法
+    // @ModelAttribute在请求该类的各个方法前均被执行的设计是基于一个思想：一个控制器，只做一个功能
+    public void queryStudentById(Map<String, Object> map) {
+        // StudentService stuService = new StudentServiceImpl();
+        // Student student = stuService.queryStudentById(31);
+        // 模拟调用三层查询数据库的操作
+        Student student = new Student();
+        student.setId(31);
+        student.setName("zs");
+        student.setAge(23);
+//        map.put("student", student); // 约定：map的key就是方法参数类型的首字母小写
+        map.put("stu", student);
+    }
+
+    // 修改 zs →  ls
+    @RequestMapping(value="testModelAttribute")
+    public String testModelAttribute(@ModelAttribute("stu") Student student) {
+        student.setName(student.getName()); // 将名字修改为ls
+        System.out.println(student.getId() + "," + student.getName() + "," + student.getAge());
         return "success";
     }
 

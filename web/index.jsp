@@ -78,6 +78,12 @@
       <a href="handler/testMap">testMap</a><br>
       <a href="handler/testModel">testModel</a><br>
 
+      <form action="handler/testModelAttribute" method="post">
+          编号:<input name="id" type="hidden" value="31"/>
+          姓名:<input name="name" type="text"/>
+          <input type="submit" value="修改">
+      </form><br>
+
 
   </body>
 </html>
