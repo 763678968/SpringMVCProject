@@ -162,5 +162,10 @@ public class SpringMVCHandler {
         System.out.println(student.getId() + "," + student.getName() + "," + student.getAge());
         return "success";
     }
+    
+    @RequestMapping(value="testI18n")
+    public String testI18n() {
+        return "success";
+    }
 
 }

@@ -77,6 +77,7 @@
       <a href="handler/testModelMap">testModelMap</a><br>
       <a href="handler/testMap">testMap</a><br>
       <a href="handler/testModel">testModel</a><br>
+      <a href="handler/testI18n">testI18n</a><br>
 
       <form action="handler/testModelAttribute" method="post">
           编号:<input name="id" type="hidden" value="31"/>

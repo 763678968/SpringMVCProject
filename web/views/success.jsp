@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: animation
@@ -11,6 +12,10 @@
     <title>Title</title>
 </head>
 <body>
+        <fmt:message key="resource.welcome"/>
+        <fmt:message key="resource.exit"/>
+
+        <br/>
         welcome to spring mvc success<br/>
         ==== request:<br/>
         ${requestScope.student.id} -${requestScope.student.name} <br>

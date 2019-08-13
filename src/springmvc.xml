@@ -7,10 +7,18 @@
     <!-- 扫描有注解的包 -->
     <context:component-scan base-package="handler"/>
 
-    <!-- 配置视图解析器(InternalResourceViewResolver) -->
+    <!-- 配置视图解析器(InternalResourceViewResolver) success - success.jsp页面 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/views/"/>
         <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!-- 加载国际化资源文件
+        1.将ResourceBundleMessageSource在程序加载时加入SpringMVC：SpringMVC在启动时，会自动查找一个id="MessageSource"的bean，如果有，则自动加载
+        2.如果配置了ResourceBundleMessageSource，则该类会在程序响应时接入
+     -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="i18n"/>
     </bean>
 
 </beans>
