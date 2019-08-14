@@ -1,4 +1,5 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: animation
@@ -14,6 +15,10 @@
 <body>
 <%--        <fmt:message key="resource.welcome"/>--%>
 <%--        <fmt:message key="resource.exit"/>--%>
+
+        <c:forEach items="${requestScope.errors}" var="error">
+                ${error.getDefaultMessage()}<br/>
+        </c:forEach>
 
         <br/>
         welcome to spring mvc success<br/>

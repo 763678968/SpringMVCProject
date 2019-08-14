@@ -43,10 +43,29 @@
 
     <!-- 3.将conversionService注册到annotation-driven中 -->
     <!-- 此配置是SpringMVC的基础配置，很多功能都需要通过该注解来协调 -->
-    <mvc:annotation-driven conversion-service="conversionService"/>
+<!--    <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>-->
 
-    <!-- 配置数据格式化注解所依赖的Bean -->
-    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean"/>
+    <mvc:annotation-driven></mvc:annotation-driven>
+
+    <!-- 配置数据格式化注解所依赖的Bean
+        FormattingConversionServiceFactoryBean：既可以实现格式化、又可以实现类型转换
+     -->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <ref bean="myConverter"/>
+            </set>
+        </property>
+    </bean>
+
+    <!-- 配置CommonsMultipartResolver，用于实现文件上传，将其加入SpringIOC容器
+        springIOC容器在初始化时，会自动寻找一个ID="multipartResolver"的bean，将其加入SpringIOC容器
+     -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <!-- 上传单个文件的最大值，单位Byte，如果-1，表示无限制 -->
+        <property name="maxUploadSize" value="102400"/>
+    </bean>
 
 
 </beans>

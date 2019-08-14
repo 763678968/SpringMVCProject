@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.util.Map;
 
 // 接口/类 注解  配置
@@ -181,17 +182,21 @@ public class SpringMVCHandler {
     }
 
     @RequestMapping(value="testDateTimeFormat") // 如果Student格式化出错，会将错误信息传入result中
-    public String testDateTimeFormat(Student student, BindingResult result) {
+    public String testDateTimeFormat(@Valid Student student, BindingResult result, Map<String, Object> map) {
 
         System.out.println(student.getId() + "," + student.getName() + "," + student.getBirthday());
 
         if(result.getErrorCount() > 0) {
             for (FieldError error: result.getFieldErrors()) {
                 System.out.println(error.getDefaultMessage());
+                map.put("errors", result.getFieldErrors()); // 将错误信息传入request域中的errors中
+//                result.getFieldErrors().get(0).getDefaultMessage();
             }
         }
 
         return "success";
     }
+
+
 
 }

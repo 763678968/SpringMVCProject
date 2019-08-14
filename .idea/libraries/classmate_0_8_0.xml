@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="classmate-0.8.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/classmate-0.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/hibernate-validator-5.0.0.CR2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/hibernate-validator-annotation-processor-5.0.0.CR2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jboss-logging-3.1.1.GA.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/validation-api-1.1.0.CR1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

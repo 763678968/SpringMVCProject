@@ -98,6 +98,7 @@
           编号:<input name="id" type="text" value="31"/>
           姓名:<input name="name" type="text"/>
           出生日期：<input name="birthday" type="text"/>
+          邮箱：<input name="email" type="text"/>
           <input type="submit" value="修改">
       </form>
 
