@@ -1,10 +1,17 @@
 package entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
+
 public class Student {
     private int id;
     private String name;
     private int age;
     private Address address;
+
+    @DateTimeFormat(pattern="yyyy-MM-dd") // 格式化：前台传递来的数据，将前台传递来的数据固定位yyyy-MM-dd
+    private Date birthday;
 
     public int getId() {
         return id;
@@ -36,5 +43,13 @@ public class Student {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 }
