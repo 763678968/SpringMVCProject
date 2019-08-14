@@ -113,7 +113,9 @@ public class SpringMVCHandler {
 
         mm.put("student2", student); // request域
 
-        return "success";
+        // forward:     redirect:
+        //
+        return "redirect:/views/success.jsp";
     }
 
     @RequestMapping(value="testMap")
@@ -162,9 +164,17 @@ public class SpringMVCHandler {
         System.out.println(student.getId() + "," + student.getName() + "," + student.getAge());
         return "success";
     }
-    
+
     @RequestMapping(value="testI18n")
     public String testI18n() {
+        return "success";
+    }
+
+    @RequestMapping(value="testConverter")
+    public String testConverter(@RequestParam("studentInfo") Student student) { // 前端：2-zs-23
+
+        System.out.println(student.getId() + "," + student.getName() + "," + student.getAge());
+
         return "success";
     }
 

@@ -2,7 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!-- 扫描有注解的包 -->
     <context:component-scan base-package="handler"/>
@@ -20,5 +21,32 @@
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="i18n"/>
     </bean>
+
+    <!-- view-name会被视图解析器加上前缀、后缀 -->
+    <mvc:view-controller path="handler/testMvcViewController" view-name="success"/>
+
+    <!-- 该注解会让SpringMVC接收一个请求，并且该请求没有对应的@requestMapping时，将该请求交给服务器默认的Servlet去处理（直接访问） -->
+    <mvc:default-servlet-handler/>
+
+
+    <!-- 1.将自定义转换器纳入SpringIOC容器 -->
+    <bean id="myConverter" class="converter.MyConverter"/>
+
+    <!-- 2.将myConverter再纳入SpringMVC提供的转换器Bean -->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <ref bean="myConverter"/>
+            </set>
+        </property>
+    </bean>
+
+    <!-- 3.将conversionService注册到annotation-driven中 -->
+    <!-- 此配置是SpringMVC的基础配置，很多功能都需要通过该注解来协调 -->
+    <mvc:annotation-driven conversion-service="conversionService"/>
+
+    <!-- 配置数据格式化注解所依赖的Bean -->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean"/>
+
 
 </beans>

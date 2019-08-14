@@ -12,8 +12,8 @@
     <title>Title</title>
 </head>
 <body>
-        <fmt:message key="resource.welcome"/>
-        <fmt:message key="resource.exit"/>
+<%--        <fmt:message key="resource.welcome"/>--%>
+<%--        <fmt:message key="resource.exit"/>--%>
 
         <br/>
         welcome to spring mvc success<br/>

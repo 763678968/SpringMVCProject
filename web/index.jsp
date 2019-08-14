@@ -83,8 +83,16 @@
           编号:<input name="id" type="hidden" value="31"/>
           姓名:<input name="name" type="text"/>
           <input type="submit" value="修改">
-      </form><br>
+      </form><br/>
 
+      <br>
+            <a href="handler/testMvcViewController">testMvcViewController</a>
+      <br/>
+
+      <form action="handler/testConverter" method="post">
+            学生信息：<input name="studentInfo" type="text"/>
+            <input type="submit" value="转换"/>
+      </form>
 
   </body>
 </html>
