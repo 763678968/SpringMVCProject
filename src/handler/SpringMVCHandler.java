@@ -5,6 +5,8 @@ import entity.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -174,6 +176,20 @@ public class SpringMVCHandler {
     public String testConverter(@RequestParam("studentInfo") Student student) { // 前端：2-zs-23
 
         System.out.println(student.getId() + "," + student.getName() + "," + student.getAge());
+
+        return "success";
+    }
+
+    @RequestMapping(value="testDateTimeFormat") // 如果Student格式化出错，会将错误信息传入result中
+    public String testDateTimeFormat(Student student, BindingResult result) {
+
+        System.out.println(student.getId() + "," + student.getName() + "," + student.getBirthday());
+
+        if(result.getErrorCount() > 0) {
+            for (FieldError error: result.getFieldErrors()) {
+                System.out.println(error.getDefaultMessage());
+            }
+        }
 
         return "success";
     }
