@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 
-@ControllerAdvice
+//@ControllerAdvice
 public class MyExceptionHandler { // 不是控制器，仅仅是用于处理异常的类
 
     @ExceptionHandler({Exception.class})
