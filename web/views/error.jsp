@@ -11,6 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-        ${requestScope.er}
+        error.jsp....<br/>
+        ${requestScope.exception}
 </body>
 </html>

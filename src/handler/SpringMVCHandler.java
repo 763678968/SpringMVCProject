@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -27,10 +28,20 @@ import java.util.Map;
 @Controller
 @RequestMapping("handler") // 映射
 public class SpringMVCHandler {
-
     @RequestMapping(value="welcome", method= RequestMethod.POST, params={"name=zs","age!=23", "!height"}) // 映射
     public String welcome() {
         return "success"; // views/success.jsp，默认使用了请求转发的跳转方式
+    }
+
+    @RequestMapping(value="welcome5", method= RequestMethod.POST)
+    public String welcome5() {
+        return "success";
+    }
+
+    @RequestMapping(value="testSimpleMappingExceptionResolver")
+    public String testSimpleMappingExceptionResolver() {
+        System.out.println(1/0); // ArithmeticException
+        return "success";
     }
 
     @RequestMapping(value="testException")

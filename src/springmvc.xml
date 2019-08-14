@@ -90,5 +90,22 @@
         <property name="maxUploadSize" value="104857600"/>
     </bean>
 
+    <!-- SimpleMappingExceptionResolver：以配置的方式处理异常 -->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <!-- 如果发生异常，异常对象会被保存在exceptionAttribute的value值中，并且会放入request域中，异常变量的默认值是exception -->
+<!--        <property name="exceptionAttribute" value="e"/>-->
+        <property name="exceptionMappings">
+            <props>
+                <!-- 相当于catch(ArithmeticException e){跳转：error} -->
+                <prop key="java.lang.ArithmeticException">
+                    error
+                </prop>
+                <prop key="java.lang.NullPointerException">
+                    error
+                </prop>
+            </props>
+        </property>
+    </bean>
+
 
 </beans>
