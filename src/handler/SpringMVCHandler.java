@@ -228,4 +228,12 @@ public class SpringMVCHandler {
         return "success";
     }
 
+    @RequestMapping(value="testInterceptor")
+    public String testInterceptor() {
+
+        System.out.println("处理请求的方法....");
+
+        return "success";
+    }
+
 }

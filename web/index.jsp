@@ -112,5 +112,9 @@
           <input type="submit" value="上传">
       </form>
 
+      <br>
+      <a href="handler/testInterceptor">testInterceptor</a>
+      <br/>
+
   </body>
 </html>
