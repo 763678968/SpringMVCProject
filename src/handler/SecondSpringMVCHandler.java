@@ -25,13 +25,29 @@ public class SecondSpringMVCHandler {
         return "success";
     }
 
-    // 该方法可以捕获本类中抛出的ArithmeticException异常
-    @ExceptionHandler({ArithmeticException.class, ArrayIndexOutOfBoundsException.class})
-    public ModelAndView handlerArithmeticException(Exception e) {
+    @ExceptionHandler({ArithmeticException.class})
+    public ModelAndView handlerArithmeticException1(Exception e) {
         ModelAndView mv = new ModelAndView("error");
         System.out.println(e + "==========");
         mv.addObject("er", e);
         return mv;
     }
+
+    @ExceptionHandler({Exception.class})
+    public ModelAndView handlerArithmeticException2(Exception e) {
+        ModelAndView mv = new ModelAndView("error");
+        System.out.println(e + "==========");
+        mv.addObject("er", e);
+        return mv;
+    }
+//
+//    // 该方法可以捕获本类中抛出的ArithmeticException异常
+//    @ExceptionHandler({ArithmeticException.class, ArrayIndexOutOfBoundsException.class})
+//    public ModelAndView handlerArithmeticException(Exception e) {
+//        ModelAndView mv = new ModelAndView("error");
+//        System.out.println(e + "==========");
+//        mv.addObject("er", e);
+//        return mv;
+//    }
 
 }

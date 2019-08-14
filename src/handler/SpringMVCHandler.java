@@ -10,6 +10,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,6 +31,12 @@ public class SpringMVCHandler {
     @RequestMapping(value="welcome", method= RequestMethod.POST, params={"name=zs","age!=23", "!height"}) // 映射
     public String welcome() {
         return "success"; // views/success.jsp，默认使用了请求转发的跳转方式
+    }
+
+    @RequestMapping(value="testException")
+    public String testException() {
+        System.out.println(1/0);
+        return "success";
     }
 
     @RequestMapping(value="welcome2", headers={"Accept=text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8","Accept-Encoding=gzip, deflate, sdch, br"})
