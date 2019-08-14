@@ -8,11 +8,16 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Map;
 
 // 接口/类 注解  配置
@@ -197,6 +202,30 @@ public class SpringMVCHandler {
         return "success";
     }
 
+    // 文件上传处理方法
+    @RequestMapping(value="testUpload") // xxx.txt
+    public String testUpload(@RequestParam("desc") String desc, @RequestParam("file") MultipartFile file) throws IOException {
 
+        System.out.println("文件描述信息：" + desc); // IO
+        // jsp中上传的文件：file
+        InputStream input = file.getInputStream();
+        String fileName = file.getOriginalFilename();
+
+        OutputStream out = new FileOutputStream("d:\\" + fileName);
+
+        byte[] bs = new byte[1024];
+        int len = -1;
+        while ((len = input.read(bs)) != -1) {
+            out.write(bs, 0, len);
+        }
+
+        out.close();
+        input.close();
+
+        // 将file上传到服务器中的某一个硬盘文件中
+        System.out.println("上传成功！");
+
+        return "success";
+    }
 
 }

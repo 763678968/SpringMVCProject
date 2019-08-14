@@ -102,5 +102,15 @@
           <input type="submit" value="修改">
       </form>
 
+      <br/>
+      <br/>
+      <br/>
+      <form action="handler/testUpload" method="post" enctype="multipart/form-data">
+          <input name="file" type="file"/>
+          描述:<input name="desc" type="text"/>
+
+          <input type="submit" value="上传">
+      </form>
+
   </body>
 </html>
