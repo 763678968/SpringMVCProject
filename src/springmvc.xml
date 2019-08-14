@@ -17,6 +17,17 @@
         </mvc:interceptor>
     </mvc:interceptors>
 
+    <mvc:interceptors>
+        <!-- 配置具体的拦截路径 -->
+        <mvc:interceptor>
+            <!-- 指定拦截的路径，基于ant风格 -->
+            <mvc:mapping path="/**"/>
+            <!-- 指定不拦截的路径 -->
+            <mvc:exclude-mapping path="/handler/testUpload"/>
+            <bean class="interceptor.MySecondInterceptor "/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
     <!-- 扫描有注解的包 -->
     <context:component-scan base-package="handler"/>
 
