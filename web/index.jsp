@@ -94,5 +94,12 @@
             <input type="submit" value="转换"/>
       </form>
 
+      <form action="handler/testDateTimeFormat" method="post">
+          编号:<input name="id" type="text" value="31"/>
+          姓名:<input name="name" type="text"/>
+          出生日期：<input name="birthday" type="text"/>
+          <input type="submit" value="修改">
+      </form>
+
   </body>
 </html>

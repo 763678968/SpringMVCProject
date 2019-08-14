@@ -32,14 +32,14 @@
     <!-- 1.将自定义转换器纳入SpringIOC容器 -->
     <bean id="myConverter" class="converter.MyConverter"/>
 
-    <!-- 2.将myConverter再纳入SpringMVC提供的转换器Bean -->
-    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
-        <property name="converters">
-            <set>
-                <ref bean="myConverter"/>
-            </set>
-        </property>
-    </bean>
+<!--    &lt;!&ndash; 2.将myConverter再纳入SpringMVC提供的转换器Bean &ndash;&gt;-->
+<!--    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">-->
+<!--        <property name="converters">-->
+<!--            <set>-->
+<!--                <ref bean="myConverter"/>-->
+<!--            </set>-->
+<!--        </property>-->
+<!--    </bean>-->
 
     <!-- 3.将conversionService注册到annotation-driven中 -->
     <!-- 此配置是SpringMVC的基础配置，很多功能都需要通过该注解来协调 -->
