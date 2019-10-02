@@ -12,6 +12,15 @@ public class Student {
     // 非简单类型
     private Address address;
 
+    public Student() {
+    }
+
+    public Student(int stuNo, String stuName, int stuAge) {
+        this.stuNo = stuNo;
+        this.stuName = stuName;
+        this.stuAge = stuAge;
+    }
+
     public int getStuNo() {
         return stuNo;
     }
