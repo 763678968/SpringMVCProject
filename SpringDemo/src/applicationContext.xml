@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="student" class="entity.Student">
+        <property name="stuNo" value="1"/>
+        <property name="stuName" value="张三"/>
+        <property name="stuAge" value="23"/>
+        <property name="address" ref="myaddress"/>
+    </bean>
+
+    <bean id="myaddress" class="entity.Address">
+        <property name="homeAddress" value="xa"/>
+        <property name="schoolAddress" value="bj"/>
+    </bean>
+
+</beans>
